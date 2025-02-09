@@ -1,0 +1,48 @@
+{
+  "makeRequestTest": {
+    "action": "makeRequest",
+    "requestConfig": {
+      "method": "GET",
+      "url": "https://api.publicapis.org/entries",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "downloadPhotoTest": {
+    "action": "downloadPhoto",
+    "requestConfig": {
+      "method": "GET",
+      "url": "https://picsum.photos/200/300",
+      "headers": {}
+    },
+    "s3": {
+      "bucket": "YOUR_BUCKET_NAME",
+      "key": "test-photos/random-photo.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  "makePostRequestTest": {
+    "action": "makeRequest",
+    "requestConfig": {
+      "method": "GET",
+      "url": "https://httpbin.org/get",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "downloadPdfTest": {
+    "action": "downloadPhoto",
+    "requestConfig": {
+      "method": "GET",
+      "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "headers": {}
+    },
+    "s3": {
+      "bucket": "YOUR_BUCKET_NAME",
+      "key": "test-docs/sample.pdf",
+      "contentType": "application/pdf"
+    }
+  }
+}

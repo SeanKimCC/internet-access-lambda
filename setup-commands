@@ -1,0 +1,4 @@
+mkdir vpc-proxy-lambda
+cd vpc-proxy-lambda
+npm init -y
+npm install axios @aws-sdk/client-s3 dotenv 

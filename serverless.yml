@@ -1,0 +1,26 @@
+service: internet-access-lambda
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+
+functions:
+  publicLambda:
+    name: "public-internet-lambda" # Use the exact name of your manually created Lambda
+    handler: src/handler.handler # Update with your actual handler function
+    package:
+      artifact: ./deployment.zip
+
+package:
+  patterns:
+    - "!node_modules/.bin/**"
+    - "!.git/**"
+    - "!.gitignore"
+    - "!.DS_Store"
+    - "!npm-debug.log"
+    - "!test/**"
+    - "!docs/**"
+    - "!.vscode/**"
+    - "!README.md"

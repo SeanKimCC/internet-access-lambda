@@ -1,0 +1,26 @@
+{
+  "name": "vpc-proxy-lambda",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AWS Lambda function to handle external requests from private VPC",
+  "main": "src/handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && mkdir dist && cp -r src/* dist/ && cp package*.json dist/ && cp -r node_modules/ dist/",
+    "deploy": "npm run build && cd dist && zip -r ../deployment.zip .",
+    "zip": "zip -r deployment.zip src/handler.js node_modules package.json",
+    "sls:deploy": "rm -rf deployment.zip && npm install --production && npm run zip && serverless deploy --function publicLambda",
+    "sls:remove": "serverless remove"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.744.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "serverless": "^3.40.0"
+  }
+}
